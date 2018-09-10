@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row">
+        <h2>
+            ADD USER
+        </h2>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form class="form-horizontal" action='/addUser' method="post">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="name">First Name :</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="Fname" name="fname" placeholder="Enter First Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="name">Last Name :</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="Lname" name="lname" placeholder="Enter Last Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email :</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="prof">Profession :</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="prof" name="prof" placeholder="Enter Profession">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-md-2"></div>
+
+    </div>
+    <div class="row">
+        <h2>User Table</h2>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Profession</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each users}}
+                    <tr>
+                        <td>{{this.fname}}</td>
+                        <td>{{this.lname}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.prof}}</td>
+                        <td>
+                            <a href="/edit/{{this.id}}">
+                                <button class="btn btn-primary">Edit</button>
+                            </a>
+                            <a href="/deleteUser/{{this.id}}">
+                                <button class="btn btn-danger">Delete</button>
+                            </a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+
+
+</div>
